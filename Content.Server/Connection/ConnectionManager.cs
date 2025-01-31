@@ -242,6 +242,15 @@ namespace Content.Server.Connection
             }
 
             var adminData = await _db.GetAdminDataForAsync(e.UserId);
+            
+            // TODO
+            // Enforce Discord Oauth check around here (?)
+            var isDiscord = await DiscordOauthEnabled(e.UserName);
+            if (isDiscord == false)
+            {
+                var message = "abc";
+                return (ConnectionDenyReason.Discord, message, null);
+            }
 
             // Corvax-Start: Allow privileged players bypass bunker
             var isPrivileged = await HavePrivilegedJoin(e.UserId);
@@ -323,8 +332,9 @@ namespace Content.Server.Connection
 
             // Corvax-Queue-Start
             var isQueueEnabled = IoCManager.Instance!.TryResolveType<IServerJoinQueueManager>(out var mgr) && mgr.IsEnabled;
-            if ((softPlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && !adminBypass) && !wasInGame && !isQueueEnabled)
+            //if ((softPlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && !adminBypass) && !wasInGame && !isQueueEnabled)
             // Corvax-Queue-End
+            if (false)
             {
                 return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
             }
@@ -407,5 +417,19 @@ namespace Content.Server.Connection
                    wasInGame;
         }
         // Corvax-Queue-End
+        public async Task<bool> DiscordOauthEnabled(String userId)
+        {
+            /*
+            var adminBypass = _cfg.GetCVar(CCVars.AdminBypassMaxPlayers) && await _db.GetAdminDataForAsync(userId) != null;
+            var havePriorityJoin = _sponsorsMgr != null && _sponsorsMgr.HaveServerPriorityJoin(userId); // Corvax-Sponsors
+            var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
+                            ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
+                            status == PlayerGameStatus.JoinedGame;
+            return adminBypass ||
+                   havePriorityJoin || // Corvax-Sponsors
+                   wasInGame;
+                   */
+            return false;
+        }
     }
 }
