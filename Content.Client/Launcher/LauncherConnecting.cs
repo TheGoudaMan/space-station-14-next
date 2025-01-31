@@ -9,6 +9,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Client.Launcher
+
 {
     public sealed class LauncherConnecting : Robust.Client.State.State
     {
@@ -85,6 +86,16 @@ namespace Content.Client.Launcher
                 // Result deliberately discarded.
                 Redial();
             }
+            // SIMPLY SETTING a "CurrentPage" fires an event. OMG
+            //if (args.Reason.Contains(""))
+            if (true)
+            {
+                // Try same flow
+                ConnectFailReason = args.Reason;
+                CurrentPage = Page.DiscordDisconnected;
+                ConnectFailed?.Invoke(args);
+                return ;
+            }
             ConnectFailReason = args.Reason;
             CurrentPage = Page.ConnectFailed;
             ConnectFailed?.Invoke(args);
@@ -140,6 +151,7 @@ namespace Content.Client.Launcher
             Connecting,
             ConnectFailed,
             Disconnected,
+            DiscordDisconnected,
         }
     }
 }

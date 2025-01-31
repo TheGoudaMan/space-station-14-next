@@ -188,9 +188,11 @@ namespace Content.Client.Launcher
 
         private void OnPageChanged(LauncherConnecting.Page page)
         {
+            //TODO Check here
             ConnectingStatus.Visible = page == LauncherConnecting.Page.Connecting;
             ConnectFail.Visible = page == LauncherConnecting.Page.ConnectFailed;
             Disconnected.Visible = page == LauncherConnecting.Page.Disconnected;
+            DiscordDisconnected.Visible = page == LauncherConnecting.Page.DiscordDisconnected; // 3
 
             if (page == LauncherConnecting.Page.Disconnected)
                 DisconnectReason.Text = _state.LastDisconnectReason;
