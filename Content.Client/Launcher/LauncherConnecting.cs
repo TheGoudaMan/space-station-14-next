@@ -88,14 +88,16 @@ namespace Content.Client.Launcher
             }
             // SIMPLY SETTING a "CurrentPage" fires an event. OMG
             //if (args.Reason.Contains(""))
+            /*
             if (true)
             {
                 // Try same flow
                 ConnectFailReason = args.Reason;
                 CurrentPage = Page.DiscordDisconnected;
                 ConnectFailed?.Invoke(args);
-                return ;
+                return;
             }
+            */
             ConnectFailReason = args.Reason;
             CurrentPage = Page.ConnectFailed;
             ConnectFailed?.Invoke(args);
