@@ -88,7 +88,7 @@ namespace Content.Client.Launcher
             }
             // SIMPLY SETTING a "CurrentPage" fires an event. OMG
             //if (args.Reason.Contains(""))
-            if (true)
+            if (false)
             {
                 // Try same flow
                 ConnectFailReason = args.Reason;
