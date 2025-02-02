@@ -44,6 +44,8 @@ namespace Content.Client.Launcher
             LayoutContainer.SetAnchorPreset(this, LayoutContainer.LayoutPreset.Wide);
 
             Stylesheet = IoCManager.Resolve<IStylesheetManager>().SheetSpace;
+            DiscordLink.SetMessage("Discord Link");
+
 
             ChangeLoginTip();
             RetryButton.OnPressed += ReconnectButtonPressed;

@@ -22,7 +22,7 @@
                     </BoxContainer>
                     <BoxContainer Name="DiscordDisconnected" Visible="False">
                         <Label Text="You have been disconnected due to missing Discord login." />
-                        <TextEdit Name="DiscordLink" Text="Tatata" Editable="False" Visible="True" />
+                        <TextEdit Name="DiscordLink" Editable="False" Visible="True" />
                         <Button Name="RetryDiscordButton"
                                 Text="{Loc 'connecting-retry'}"
                                 HorizontalAlignment="Center"
