@@ -248,7 +248,7 @@ namespace Content.Server.Connection
             var isDiscord = await DiscordOauthEnabled(e.UserName);
             if (isDiscord == false)
             {
-                var message = "Discord not there blabla";
+                var message = "Discord";
                 return (ConnectionDenyReason.Discord, message, null);
             }
 

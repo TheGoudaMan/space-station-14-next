@@ -51,6 +51,7 @@ namespace Content.Client.Launcher
 
             CopyButton.OnPressed += CopyButtonPressed;
             CopyButtonDisconnected.OnPressed += CopyButtonDisconnectedPressed;
+            CopyButtonDiscord.OnPressed += CopyButtonDiscordPressed;
             ExitButton.OnPressed += _ => _state.Exit();
 
             var addr = state.Address;
@@ -91,6 +92,10 @@ namespace Content.Client.Launcher
         private void CopyButtonDisconnectedPressed(BaseButton.ButtonEventArgs args)
         {
             CopyText(DisconnectReason.Text);
+        }
+        private void CopyButtonDiscordPressed(BaseButton.ButtonEventArgs args)
+        {
+            CopyText(DiscordLink.Text);
         }
 
         private void CopyText(string? text)
@@ -192,7 +197,7 @@ namespace Content.Client.Launcher
             ConnectingStatus.Visible = page == LauncherConnecting.Page.Connecting;
             ConnectFail.Visible = page == LauncherConnecting.Page.ConnectFailed;
             Disconnected.Visible = page == LauncherConnecting.Page.Disconnected;
-            DiscordDisconnected.Visible = page == LauncherConnecting.Page.DiscordDisconnected; // 3
+            DiscordDisconnected.Visible = page == LauncherConnecting.Page.DiscordDisconnected;
 
             if (page == LauncherConnecting.Page.Disconnected)
                 DisconnectReason.Text = _state.LastDisconnectReason;
