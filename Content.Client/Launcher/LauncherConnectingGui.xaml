@@ -23,6 +23,7 @@
                     <BoxContainer Name="DiscordDisconnected" Visible="False">
                         <Label Text="You have been disconnected due to missing Discord login." />
                         <Label Name="DiscordLink" Text="Tatata" Visible="True" />
+                        <!--
                         <Button Name="RetryDiscordButton"
                                 Text="{Loc 'connecting-retry'}"
                                 HorizontalAlignment="Center"
@@ -33,6 +34,7 @@
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Bottom"
                                 StyleClasses="OpenLeft"/>
+                        -->
                         <!--
                         <Button Name="CopyButtonDiscord"
                                 Text="{Loc 'connecting-copy'}"

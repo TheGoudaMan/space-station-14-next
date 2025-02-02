@@ -55,7 +55,7 @@ namespace Content.Client.Launcher
 
             ChangeLoginTip();
             RetryButton.OnPressed += ReconnectButtonPressed;
-            RetryDiscordButton.OnPressed += ReconnectButtonPressed;
+            //RetryDiscordButton.OnPressed += ReconnectButtonPressed;
             ReconnectButton.OnPressed += ReconnectButtonPressed;
             OpenDiscordButton.OnPressed += OpenDiscordLink;
 
@@ -181,17 +181,17 @@ namespace Content.Client.Launcher
             base.FrameUpdate(args);
             
             
+            /*
             var button = _state.CurrentPage == LauncherConnecting.Page.ConnectFailed
                 ? RetryButton
                 : _state.CurrentPage == LauncherConnecting.Page.DiscordDisconnected
                     ? RetryDiscordButton
                     : ReconnectButton;
+            */
 
-            /*
             var button = _state.CurrentPage == LauncherConnecting.Page.ConnectFailed
                 ? RetryButton
                 : ReconnectButton;
-            */
 
             _waitTime -= args.DeltaSeconds;
             if (_waitTime <= 0)
