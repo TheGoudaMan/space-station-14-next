@@ -21,9 +21,6 @@
                         <Label Name="ConnectStatus" StyleClasses="LabelSubText" Align="Center" />
                     </BoxContainer>
 
-                    <BoxContainer Name="DiscordDisconnected" Visible="False">
-                        <Label Text="You have been disconnected due to missing Discord login." />
-                    </BoxContainer>
                     <BoxContainer Orientation="Vertical" Name="Disconnected" Visible="False" SeparationOverride="10">
                         <Label Text="{Loc 'connecting-disconnected'}" Align="Center" />
                         <Label Name="DisconnectReason" Align="Center" />
