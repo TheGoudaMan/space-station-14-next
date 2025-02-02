@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Diagnostics;
 using Content.Client.Stylesheets;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
@@ -29,6 +30,11 @@ namespace Content.Client.Launcher
         private readonly IPrototypeManager _prototype;
         private readonly IConfigurationManager _cfg;
         private readonly IClipboardManager _clipboard;
+        private void OpenDiscordLink(BaseButton.ButtonEventArgs args)
+        {
+            var url = "https://discord.com"; // Replace with the actual link you want
+            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+        }
 
         public LauncherConnectingGui(LauncherConnecting state, IRobustRandom random,
             IPrototypeManager prototype, IConfigurationManager config, IClipboardManager clipboard)
@@ -44,17 +50,18 @@ namespace Content.Client.Launcher
             LayoutContainer.SetAnchorPreset(this, LayoutContainer.LayoutPreset.Wide);
 
             Stylesheet = IoCManager.Resolve<IStylesheetManager>().SheetSpace;
-            DiscordLink.SetMessage("Discord Link");
+            //DiscordLink.SetMessage("Discord Link");
 
 
             ChangeLoginTip();
             RetryButton.OnPressed += ReconnectButtonPressed;
             RetryDiscordButton.OnPressed += ReconnectButtonPressed;
             ReconnectButton.OnPressed += ReconnectButtonPressed;
+            OpenDiscordButton.OnPressed += OpenDiscordLink;
 
             CopyButton.OnPressed += CopyButtonPressed;
             CopyButtonDisconnected.OnPressed += CopyButtonDisconnectedPressed;
-            CopyButtonDiscord.OnPressed += CopyButtonDiscordPressed;
+            //CopyButtonDiscord.OnPressed += CopyButtonDiscordPressed;
             ExitButton.OnPressed += _ => _state.Exit();
 
             var addr = state.Address;
@@ -96,10 +103,12 @@ namespace Content.Client.Launcher
         {
             CopyText(DisconnectReason.Text);
         }
+        /*
         private void CopyButtonDiscordPressed(BaseButton.ButtonEventArgs args)
         {
             CopyText(DiscordLink.Text);
         }
+        */
 
         private void CopyText(string? text)
         {
