@@ -1,5 +1,5 @@
 using System.Linq;
-using System.Diagnostics;
+//using System.Diagnostics;
 using Content.Client.Stylesheets;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
@@ -32,8 +32,8 @@ namespace Content.Client.Launcher
         private readonly IClipboardManager _clipboard;
         private void OpenDiscordLink(BaseButton.ButtonEventArgs args)
         {
-            var url = "https://discord.com"; // Replace with the actual link you want
-            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            //var url = "https://discord.com"; // Replace with the actual link you want
+            //Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
         }
 
         public LauncherConnectingGui(LauncherConnecting state, IRobustRandom random,
