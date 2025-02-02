@@ -246,7 +246,7 @@ namespace Content.Server.Connection
             // TODO
             // Enforce Discord Oauth check around here (?)
             var isDiscord = await DiscordOauthEnabled(e.UserName);
-            if (isDiscord == false)
+            if (isDiscord == true)
             {
                 var message = "abc";
                 return (ConnectionDenyReason.Discord, message, null);
@@ -333,7 +333,8 @@ namespace Content.Server.Connection
             // Corvax-Queue-Start
             var isQueueEnabled = IoCManager.Instance!.TryResolveType<IServerJoinQueueManager>(out var mgr) && mgr.IsEnabled;
             // Corvax-Queue-End
-            if ((softPlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && !adminBypass) && !wasInGame && !isQueueEnabled)
+            //if ((softPlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && !adminBypass) && !wasInGame && !isQueueEnabled)
+            if (true)
             {
                 return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
             }
