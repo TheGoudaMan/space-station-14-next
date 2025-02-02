@@ -192,7 +192,7 @@ namespace Content.Client.Launcher
             ConnectingStatus.Visible = page == LauncherConnecting.Page.Connecting;
             ConnectFail.Visible = page == LauncherConnecting.Page.ConnectFailed;
             Disconnected.Visible = page == LauncherConnecting.Page.Disconnected;
-            DiscordDisconnected.Visible = page == LauncherConnecting.Page.DiscordDisconnected; // 3
+            //DiscordDisconnected.Visible = page == LauncherConnecting.Page.DiscordDisconnected; // 3
 
             if (page == LauncherConnecting.Page.Disconnected)
                 DisconnectReason.Text = _state.LastDisconnectReason;
