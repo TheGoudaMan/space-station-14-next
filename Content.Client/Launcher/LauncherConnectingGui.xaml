@@ -20,21 +20,6 @@
                         <Label Text="{Loc 'connecting-in-progress'}" Align="Center" />
                         <Label Name="ConnectStatus" StyleClasses="LabelSubText" Align="Center" />
                     </BoxContainer>
-                    <BoxContainer Orientation="Vertical" Name="DiscordConnectFail" Visible="False" SeparationOverride="10">
-                        <RichTextLabel Name="ConnectFailReason" VerticalAlignment="Stretch"/>
-                        <BoxContainer Orientation="Horizontal" Align="Center">
-                            <Button Name="RetryButton"
-                                    Text="{Loc 'connecting-retry'}"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Bottom"
-                                    StyleClasses="OpenRight"/>
-                            <Button Name="CopyButton"
-                                    Text="{Loc 'connecting-copy'}"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Bottom"
-                                    StyleClasses="OpenLeft"/>
-                        </BoxContainer>
-                    </BoxContainer>
                     <BoxContainer Orientation="Vertical" Name="ConnectFail" Visible="False" SeparationOverride="10">
                         <RichTextLabel Name="ConnectFailReason" VerticalAlignment="Stretch"/>
                         <BoxContainer Orientation="Horizontal" Align="Center">
