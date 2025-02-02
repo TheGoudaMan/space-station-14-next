@@ -47,6 +47,7 @@ namespace Content.Client.Launcher
 
             ChangeLoginTip();
             RetryButton.OnPressed += ReconnectButtonPressed;
+            RetryDiscordButton.OnPressed += ReconnectButtonPressed;
             ReconnectButton.OnPressed += ReconnectButtonPressed;
 
             CopyButton.OnPressed += CopyButtonPressed;
@@ -167,10 +168,19 @@ namespace Content.Client.Launcher
         protected override void FrameUpdate(FrameEventArgs args)
         {
             base.FrameUpdate(args);
+            
+            
+            var button = _state.CurrentPage == LauncherConnecting.Page.ConnectFailed
+                ? RetryButton
+                : _state.CurrentPage == LauncherConnecting.Page.DiscordDisconnected
+                    ? RetryDiscordButton
+                    : ReconnectButton;
 
+            /*
             var button = _state.CurrentPage == LauncherConnecting.Page.ConnectFailed
                 ? RetryButton
                 : ReconnectButton;
+            */
 
             _waitTime -= args.DeltaSeconds;
             if (_waitTime <= 0)
