@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -63,3 +63,4 @@ namespace Content.Server.Discord
         public string Avatar { get; set; } = "";
     }
 }
+*/
